@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM sonarqube:7.0-alpine
+FROM sonarqube:7.1-alpine
+
+RUN cd extensions/plugins &&\
+  wget -q http://repo1.maven.org/maven2/org/sonarsource/java/sonar-java-plugin/5.3.0.13828/sonar-java-plugin-5.3.0.13828.jar &&\
+  wget -q http://repo1.maven.org/maven2/com/github/spotbugs/sonar-findbugs-plugin/3.7.0/sonar-findbugs-plugin-3.7.0.jar &&\
+  wget -q https://github.com/checkstyle/sonar-checkstyle/releases/download/4.9/checkstyle-sonar-plugin-4.9.jar &&\
+  cd ../..
 
 EXPOSE 9000
