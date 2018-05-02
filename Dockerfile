@@ -15,6 +15,8 @@
 FROM sonarqube:7.1-alpine
 
 RUN cd extensions/plugins &&\
+  cp ../../lib/bundled-plugins/* . &&\
+  rm sonar-java-plugin-*.jar &&\
   wget -q http://repo1.maven.org/maven2/org/sonarsource/java/sonar-java-plugin/5.3.0.13828/sonar-java-plugin-5.3.0.13828.jar &&\
   wget -q http://repo1.maven.org/maven2/com/github/spotbugs/sonar-findbugs-plugin/3.7.0/sonar-findbugs-plugin-3.7.0.jar &&\
   wget -q https://github.com/checkstyle/sonar-checkstyle/releases/download/4.9/checkstyle-sonar-plugin-4.9.jar &&\
