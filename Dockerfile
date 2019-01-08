@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM sonarqube:7.1-alpine
+FROM sonarqube:7.4-community
 
 RUN cd extensions/plugins &&\
   cp ../../lib/bundled-plugins/* . &&\
